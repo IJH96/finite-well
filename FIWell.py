@@ -28,9 +28,9 @@ def bisection(f, pairs, tolerance, max_iter):
         if (iter < max_iter):
             zeroes.append(midpoint)
     return zeroes
-V_0 = 4E-17
+#V_0 = 4E-17
 #V_0 =8E-17
-#V_0 = 8E-15 #Joules
+V_0 = 8E-15 #Joules
 a = 1E-10 #meters
 h_bar = 1.054E-34 #J*s
 m_e = 9.109E-31 #Kg
@@ -71,17 +71,17 @@ for z in zeros:
 
 for z in zeros_2:
     E.append(h_bar**2/(2*m_e*a**2)*z**2 - V_0)
-
+#converting the discrete case into more of an infinite one.
 print(E)
-
+# 
 def Infinite(n):
     return (n*np.pi*h_bar)**2/(8*m_e*a**2) - V_0
 
-print("infinite", Infinite(1), Infinite(2), Infinite(3), Infinite(4), Infinite(5))
+print("infinite", Infinite(1), Infinite(2), Infinite(3), Infinite(4), Infinite(5),Infinite(6), Infinite(7), Infinite(8))
 
 x = np.linspace(-15,15,5)
 plt.plot(x, E)
-plt.plot(x, (Infinite(1), Infinite(2), Infinite(3), Infinite(4), Infinite(5)))
+#plt.plot(x, (Infinite(1), Infinite(2), Infinite(3), Infinite(4), Infinite(5)))
 plt.plot(x, x)
 #plt.ylim(-8.3E-15, -7.6E-15)
 plt.show()
